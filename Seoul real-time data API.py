@@ -30,12 +30,8 @@ def API_Real_time_Data_Save():
     api_to_dataframe = pd.DataFrame(json_data['CITYDATA'][Data_target])
     api_to_dataframe.to_csv('Data_merge.csv',index=False)
 
-    # JSON 파일로 저장
-    with open(f"test.json", "w", encoding="utf-8") as json_file:
-        json.dump(json_data, json_file, ensure_ascii=False, indent=4)
-
 def Create_Table():
-    df = pd.read_csv('data_merge.csv')
+    df = pd.read_csv('Data_merge.csv')
     ## csv read시 colum에 빈칸이 있으면 mysql에서 query 정상작동이 안됨;;
 
     # 연결이 제대로 되었는지 확인
